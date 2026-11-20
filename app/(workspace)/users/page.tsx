@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { User } from '../types';  
+import type { User } from '@/app/types';
 import { connection } from "next/server";
 const Users = async  () => {
   const res= await fetch(

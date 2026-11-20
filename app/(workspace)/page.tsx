@@ -31,6 +31,7 @@ interface StatItem {
   change: string;
   period: string;
   trend: "up" | "down";
+  sentiment: "positive" | "negative";
 }
 
 interface MonthRevenue {
@@ -62,10 +63,10 @@ interface Task {
 }
 
 const stats: StatItem[] = [
-  { label: "Total revenue", value: "$128,450", change: "+12.8%", period: "vs. last month", trend: "up" },
-  { label: "Operating expenses", value: "$42,680", change: "−4.2%", period: "vs. last month", trend: "up" },
-  { label: "Open orders", value: "148", change: "−24", period: "this month", trend: "down" },
-  { label: "Cash balance", value: "$85,770", change: "+8.6%", period: "vs. last month", trend: "up" },
+  { label: "Total revenue", value: "$128,450", change: "+12.8%", period: "vs. last month", trend: "up", sentiment: "positive" },
+  { label: "Operating expenses", value: "$42,680", change: "−4.2%", period: "vs. last month", trend: "down", sentiment: "positive" },
+  { label: "Open orders", value: "148", change: "−24", period: "this month", trend: "down", sentiment: "negative" },
+  { label: "Cash balance", value: "$85,770", change: "+8.6%", period: "vs. last month", trend: "up", sentiment: "positive" },
 ];
 
 const monthlyRevenue: MonthRevenue[] = [
@@ -294,7 +295,7 @@ export default function Home() {
                 </div>
                 <strong className="stat-value">{stat.value}</strong>
                 <div className="stat-bottomline">
-                  <span className={`stat-change${stat.trend === "down" ? " down" : ""}`}>
+                  <span className={`stat-change${stat.sentiment === "negative" ? " down" : ""}`}>
                     <TrendIcon size={10} aria-hidden="true" />{stat.change}
                   </span>
                   <span className="stat-period">{stat.period}</span>

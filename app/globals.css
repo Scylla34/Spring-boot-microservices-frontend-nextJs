@@ -962,6 +962,71 @@ select {
   background: #98492f;
 }
 
+.auth-layout {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
+  background: #fff;
+}
+
+.auth-panel {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 28px clamp(24px, 6vw, 88px);
+}
+
+.auth-brand {
+  font-size: 20px;
+}
+
+.auth-content {
+  width: min(100%, 400px);
+  margin: auto;
+  padding-block: 48px;
+}
+
+.auth-footnote {
+  margin: 0;
+  color: #a09e95;
+  font-size: 10px;
+}
+
+.auth-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #edf0e6;
+  padding: clamp(32px, 6vw, 88px);
+  color: #46513e;
+}
+
+.auth-aside-mark {
+  margin-bottom: auto;
+  font-size: 24px;
+  font-weight: 750;
+}
+
+.auth-aside-mark span {
+  margin-left: 6px;
+  color: var(--primary);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.auth-aside p {
+  max-width: 420px;
+  margin: 0 0 9px;
+  font-size: 30px;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.auth-aside > span {
+  color: #70796a;
+  font-size: 12px;
+}
+
 @media (max-width: 1100px) {
   .main-content {
     padding-inline: 18px;
@@ -1121,6 +1186,18 @@ select {
 
   .legend-item {
     font-size: 7px;
+  }
+
+  .auth-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .auth-panel {
+    padding: 22px 18px;
+  }
+
+  .auth-aside {
+    display: none;
   }
 }
 
