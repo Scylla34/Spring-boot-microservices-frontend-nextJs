@@ -817,6 +817,66 @@ select {
 .orders-table tbody tr:last-child {
   border-bottom: 0;
 }
+.users-table table {
+  min-width: 560px;
+  font-size: 9px;
+}
+
+.users-table thead {
+  background: #f7f6f2;
+}
+
+.users-table th {
+  height: 27px;
+  padding: 0 12px;
+  color: #cd1515;
+  font-size: 8px;
+  font-weight: 550;
+}
+
+.users-table td {
+  height: 30px;
+  padding: 0 12px;
+  color: #55564f;
+  font-size: 9px;
+}
+
+.users-table tbody tr {
+  border-bottom: 1px solid #f0eee8;
+}
+
+.users-table tbody tr:last-child {
+  border-bottom: 0;
+}
+
+.users-state {
+  display: flex;
+  min-height: 128px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--muted-foreground);
+  font-size: 11px;
+}
+
+.users-state[role="alert"] {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  color: var(--foreground);
+}
+
+.users-state[role="alert"] strong {
+  font-size: 12px;
+}
+
+.users-state[role="alert"] p {
+  margin: 4px 0 0;
+  color: var(--muted-foreground);
+}
 
 .order-id {
   color: #42433d;

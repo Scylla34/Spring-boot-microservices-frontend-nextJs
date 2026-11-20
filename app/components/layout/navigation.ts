@@ -20,7 +20,7 @@ export interface NavigationItem {
 
 export const workspaceNavigation: NavigationItem[] = [
   { label: "Overview", href: "/", icon: LayoutDashboard },
-  { label: "Finance", href: "/finance", icon: WalletCards },
+  { label: "Finance", href: "/users", icon: WalletCards },
   { label: "Sales & Orders", href: "/sales", icon: ShoppingCart, count: "12" },
   { label: "Purchasing", href: "/purchasing", icon: FileText },
   { label: "Inventory", href: "/inventory", icon: Boxes },
