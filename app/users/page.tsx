@@ -1,18 +1,42 @@
-import React from 'react'
+import { Suspense } from 'react'
 import { User } from '../types';  
-const usersPage = async () => {
-  const res = await fetch('http://localhost:8080/api/v1/products');
-  const users: User[] = await res.json();
+import { connection } from "next/server";
+const Users = async  () => {
+  const res= await fetch(
+    'https://jsonplaceholder.typicode.com/users',
+    {next: {revalidate: 10}}
+  
+  );
+  const users:User[] = await res.json();
+   await connection();
   return (
     <>
-    <h1>Users Page</h1>
+    <h1>Users List</h1>
+    <p>Fetched at: {new Date().toLocaleTimeString()}</p>
     <ul>
-      {users.map((user: User) => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul> 
+    {users.map((user) => (
+      <li key={user.id}>
+        <h2>{user.name}</h2>
+        <p>Username: {user.username}</p>
+        <p>Email: {user.email}</p>
+        <p>Phone: {user.phone}</p>
+        <p>Website: {user.website}</p>
+        <p>Address: {user.address.street}, {user.address.city}, {user.address.zipcode}</p>
+        <p>Company: {user.company.name}</p>
+      </li>
+    ))}
+  </ul>
     </>
   )
 }
 
-export default usersPage
+const UsersPage = () => {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading users...</div>}>
+      <Users />
+      </Suspense>
+    </div>
+  )
+}
+export default UsersPage
